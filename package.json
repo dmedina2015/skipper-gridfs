@@ -1,5 +1,5 @@
 {
-  "name": "dmedina2015@skipper-gridfs",
+  "name": "@dmedina2015/skipper-gridfs",
   "version": "1.0.2",
   "description": "A skipper adapter to allow uploading files to MongoDB's GridFS. Fork made by Daniel Medina.",
   "main": "index.js",
