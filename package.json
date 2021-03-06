@@ -1,7 +1,7 @@
 {
-  "name": "skipper-gridfs",
+  "name": "dmedina2015@skipper-gridfs",
   "version": "1.0.2",
-  "description": "A skipper adapter to allow uploading files to MongoDB's GridFS",
+  "description": "A skipper adapter to allow uploading files to MongoDB's GridFS. Fork made by Daniel Medina.",
   "main": "index.js",
   "scripts": {
     "test": "node -e \"require('skipper-adapter-tests')({module: require('./'), uri: process.env.URI});\""
@@ -17,7 +17,7 @@
     "mongodb",
     "upload"
   ],
-  "author": "Will Huang <willhuang85@gmail.com>",
+  "author": "Will Huang <willhuang85@gmail.com>, Daniel Medina <daniel.sm@gmail.com>",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/willhuang85/skipper-gridfs/issues"
