@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/willhuang85/skipper-gridfs.git"
+    "url": "https://github.com/dmedina2015/skipper-gridfs"
   },
   "keywords": [
     "skipper",
@@ -17,14 +17,14 @@
     "mongodb",
     "upload"
   ],
-  "author": "Will Huang <willhuang85@gmail.com>, Daniel Medina <daniel.sm@gmail.com>",
+  "author": "",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/willhuang85/skipper-gridfs/issues"
+    "url": "https://github.com/dmedina2015/skipper-gridfs/issues"
   },
-  "homepage": "https://github.com/willhuang85/skipper-gridfs",
+  "homepage": "https://github.com/dmedina2015/skipper-gridfs",
   "devDependencies": {
-    "skipper-adapter-tests": "github:willhuang85/skipper-adapter-tests#master"
+
   },
   "dependencies": {
     "concat-stream": "^1.6.2",

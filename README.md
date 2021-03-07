@@ -1,7 +1,20 @@
+========================================
+
+## DISCLAIMER
+
+This is a fork package from skipper-gridfs. Today, the only difference between this and the [original](https://www.npmjs.com/package/skipper-gridfs) one is a new function called 'info', used to fetch metadata from GridFS ** fs.files ** collection.
+
+Details about it you find [here](https://github.com/willhuang85/skipper-gridfs/pull/43).
+
+All the credits about the original package belongs to @willhuang85 and the staff of original package. Great job guys!
+
+========================================
+
+
 # [<img title="skipper-gridfs - GridFS filesystem adapter for Skipper" src="http://i.imgur.com/P6gptnI.png" width="200px" alt="skipper emblem - face of a ship's captain"/>](https://github.com/willhuang85/skipper-gridfs) GridFS Filesystem Adapter
 
 [![NPM version](https://badge.fury.io/js/skipper-gridfs.png)](http://badge.fury.io/js/skipper-gridfs) &nbsp; &nbsp;
-[![Build Status](https://travis-ci.org/willhuang85/skipper-gridfs.svg?branch=master)](https://travis-ci.org/willhuang85/skipper-gridfs)
+
 
 GridFS adapter for receiving [upstreams](https://github.com/balderdashy/skipper#what-are-upstreams). Particularly useful for handling streaming multipart file uploads from the [Skipper](https://github.com/balderdashy/skipper) body parser.
 
@@ -53,8 +66,6 @@ For more detailed usage information and a full list of available options, see th
 ## Contributions
 
 are welcomed :ok_hand:
-
-See [ROADMAP.md](https://github.com/willhuang85/skipper-gridfs/blob/master/ROADMAP.md).
 
 To run the tests:
 
