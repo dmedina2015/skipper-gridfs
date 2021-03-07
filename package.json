@@ -1,6 +1,6 @@
 {
   "name": "@dmedina2015/skipper-gridfs",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A skipper adapter to allow uploading files to MongoDB's GridFS. Fork made by Daniel Medina.",
   "main": "index.js",
   "scripts": {
@@ -23,9 +23,7 @@
     "url": "https://github.com/dmedina2015/skipper-gridfs/issues"
   },
   "homepage": "https://github.com/dmedina2015/skipper-gridfs",
-  "devDependencies": {
-
-  },
+  "devDependencies": {},
   "dependencies": {
     "concat-stream": "^1.6.2",
     "lodash": "^4.17.11",
