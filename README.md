@@ -26,7 +26,7 @@ Currently only supports Node 6 and up
 ## Installation
 
 ```
-$ npm install skipper-gridfs --save
+$ npm install @dmedina2015/skipper-gridfs --save
 ```
 
 Also make sure you have skipper [installed as your body parser](http://beta.sailsjs.org/#/documentation/concepts/Middleware?q=adding-or-overriding-http-middleware).
