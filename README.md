@@ -2,10 +2,11 @@
 
 ## DISCLAIMER
 
-This is a fork package from skipper-gridfs. Today, the only difference between this and the [original](https://www.npmjs.com/package/skipper-gridfs) one is a new function called 'info', used to fetch metadata from GridFS ** fs.files ** collection.
-
-Details about it you find [here](https://github.com/willhuang85/skipper-gridfs/pull/43).
-
+This is a fork package from skipper-gridfs. Below are the diferences from [original project](https://www.npmjs.com/package/skipper-gridfs):
+- New function `adapter.info()`, used to fetch metadata from GridFS `fs.files` collection.
+  Details about it you find [here](https://github.com/willhuang85/skipper-gridfs/pull/43).
+- Bug fix in function `adapter.rm()` that causes callback to be called twice.
+  Detais about it you find [here](https://github.com/willhuang85/skipper-gridfs/pull/44).
 All the credits about the original package belongs to @willhuang85 and the staff of original package. Great job guys!
 
 ========================================
