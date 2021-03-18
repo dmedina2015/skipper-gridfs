@@ -23,11 +23,13 @@
     "url": "https://github.com/dmedina2015/skipper-gridfs/issues"
   },
   "homepage": "https://github.com/dmedina2015/skipper-gridfs",
-  "devDependencies": {},
+  "devDependencies": {
+    "skipper-adapter-tests": "^2.0.0"
+  },
   "dependencies": {
     "concat-stream": "^1.6.2",
     "lodash": "^4.17.11",
     "mime": "^2.3.1",
-    "mongodb": "^3.1.8"
+    "mongodb": "^3.6.5"
   }
 }
