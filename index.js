@@ -5,6 +5,7 @@ const path = require('path');
 const mime = require('mime');
 const _ = require('lodash');
 const concat = require('concat-stream');
+const buildProgressStream = require('./standalone/build-progress-stream');
 
 
 
@@ -134,6 +135,15 @@ module.exports = function SkipperGridFS(globalOptions) {
     adapter.receive = (opts) => {
         const receiver__ = WritableStream({ objectMode: true });
 
+        // if onProgress handler was provided, bind an event automatically:
+        if (_.isFunction(options.onProgress)) {
+            receiver__.on('progress', options.onProgress);
+        }
+
+        // Track the progress of all file uploads that pass through this receiver
+        // through one or more attached Upstream(s).
+        receiver__._files = [];
+
         receiver__._write = (__newFile, encoding, done) => {
             client(options.uri, options.mongoOptions, (error, client) => {
                 if (error) {
@@ -158,19 +168,31 @@ module.exports = function SkipperGridFS(globalOptions) {
                     if (client) client.close();
                     done();
                 });
+
+                outs__.once('E_EXCEEDS_UPLOAD_LIMIT', (err) => {
+                    //Aborts GridFS Upload Stream cleaning all invalid chunks (garbage collector)
+                    outs__.abort(() => {
+                        if (client) client.close();
+                        return done(err);
+                    }); 
+                });
+                
                 outs__.once('error', (err) => {
-                    if (client) client.close();
-                    return done({
-                        incoming: __newFile,
-                        outgoing: outs__,
-                        code: 'E_WRITE',
-                        stack: typeof err === 'object' ? err.stack : new Error(err),
-                        name: typeof err === 'object' ? err.name : err,
-                        message: typeof err === 'object' ? err.message : err
-                    });
+                    //Aborts GridFS Upload Stream cleaning all invalid chunks (garbage collector)
+                    outs__.abort(() => {
+                        if (client) client.close();
+                        return done(err);
+                    }); 
                 });
 
-                __newFile.pipe(outs__);
+                // Create another stream that simply keeps track of the progress of the file stream and emits `progress` events
+                // on the receiver.
+                const __progress__ = buildProgressStream(options, __newFile, receiver__, outs__, client, done);
+
+
+                __newFile
+                    .pipe(__progress__)
+                    .pipe(outs__);
             });
         }
         return receiver__;
