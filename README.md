@@ -27,7 +27,7 @@ All the credits about the original package belongs to @willhuang85 and the staff
 # [<img title="skipper-gridfs - GridFS filesystem adapter for Skipper" src="http://i.imgur.com/P6gptnI.png" width="200px" alt="skipper emblem - face of a ship's captain"/>](https://github.com/willhuang85/skipper-gridfs) GridFS Filesystem Adapter
 
 [![npm version](https://badge.fury.io/js/%40dmedina2015%2Fskipper-gridfs.svg)](https://badge.fury.io/js/%40dmedina2015%2Fskipper-gridfs) &nbsp; 
-[![Build Status](https://travis-ci.org/dmedina2015/skipper-gridfs.svg?branch=master)](https://travis-ci.org/dmedina2015/skipper-gridfs)
+[![Build Status](https://travis-ci.com/dmedina2015/skipper-gridfs.svg?branch=master)](https://travis-ci.com/dmedina2015/skipper-gridfs)
 &nbsp;
 
 
