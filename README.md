@@ -1,11 +1,13 @@
-========================================
+## [<img title="skipper-gridfs - GridFS filesystem adapter for Skipper" src="http://i.imgur.com/P6gptnI.png" width="200px" alt="skipper emblem - face of a ship's captain"/>](https://github.com/dmedina2015/skipper-gridfs) GridFS Filesystem Adapter
 
-## DISCLAIMER
+[![npm version](https://badge.fury.io/js/%40dmedina2015%2Fskipper-gridfs.svg)](https://badge.fury.io/js/%40dmedina2015%2Fskipper-gridfs) &nbsp; 
+[![Build Status](https://travis-ci.com/dmedina2015/skipper-gridfs.svg?branch=master)](https://travis-ci.com/dmedina2015/skipper-gridfs)
+&nbsp;
 
-This is a fork package from skipper-gridfs. Below are the diferences from [original project](https://www.npmjs.com/package/skipper-gridfs):
 
-- Bug fix in function `adapter.rm()` that causes callback to be called twice.
-  Detais about it you find [here](https://github.com/willhuang85/skipper-gridfs/pull/44).
+GridFS adapter for receiving [upstreams](https://github.com/balderdashy/skipper#what-are-upstreams). Particularly useful for handling streaming multipart file uploads from the [Skipper](https://github.com/balderdashy/skipper) body parser.
+
+This is a fork from [skipper-gridfs](https://www.npmjs.com/package/skipper-gridfs). Below are the diferences from base repository:
 
 - Added support to `maxBytes` option, using similar logic from `skipper-disk`. Behavior:
   * An error is thrown when upload stream exceeds bytes defined in `maxBytes` parameter.
@@ -15,23 +17,14 @@ This is a fork package from skipper-gridfs. Below are the diferences from [origi
 
 - Added support to `onProgress` using same logic from `skipper-disk`
 
-- Added support to Node >= 14. 
+- Added support to Node >= 14 & MongoDB Node Driver 3.6.5
 
 - CI using official [skipper-adapter-test](https://github.com/balderdashy/skipper-adapter-tests)
 
+- Bug fix in function `adapter.rm()` that causes callback to be called twice.
+  Detais about it you find [here](https://github.com/willhuang85/skipper-gridfs/pull/44).
+
 All the credits about the original package belongs to @willhuang85 and the staff. Great job guys!
-
-========================================
-
-
-# [<img title="skipper-gridfs - GridFS filesystem adapter for Skipper" src="http://i.imgur.com/P6gptnI.png" width="200px" alt="skipper emblem - face of a ship's captain"/>](https://github.com/willhuang85/skipper-gridfs) GridFS Filesystem Adapter
-
-[![npm version](https://badge.fury.io/js/%40dmedina2015%2Fskipper-gridfs.svg)](https://badge.fury.io/js/%40dmedina2015%2Fskipper-gridfs) &nbsp; 
-[![Build Status](https://travis-ci.com/dmedina2015/skipper-gridfs.svg?branch=master)](https://travis-ci.com/dmedina2015/skipper-gridfs)
-&nbsp;
-
-
-GridFS adapter for receiving [upstreams](https://github.com/balderdashy/skipper#what-are-upstreams). Particularly useful for handling streaming multipart file uploads from the [Skipper](https://github.com/balderdashy/skipper) body parser.
 
 Currently only supports Node 6 and up. Node 15 included!
 
@@ -76,7 +69,12 @@ For more detailed usage information and a full list of available options, see th
 | `bucketOptions` | ((object)) | An optional parameter that matches the GridFSBucket options (Check [mongo gridfs bucket options](http://mongodb.github.io/node-mongodb-native/3.1/api/GridFSBucket.html)).                              |
 | `mongoOptions`  | ((object)) | An optional paramter that matches the MongoClient.connect options (Check [mongo client options](http://mongodb.github.io/node-mongodb-native/3.1/api/MongoClient.html#.connect)).                       |
 | `maxBytes`      | ((integer))| Optional. Max total number of bytes permitted for a given upload, calculated by summing the size of all files in the upstream; e.g. if you created an upstream that watches the "avatar" field (`req.file('avatar')`), and a given request sends 15 file fields with the name "avatar", `maxBytes` will check the total number of bytes in all of the 15 files.  If maxBytes is exceeded, the already-written files will be left untouched, but unfinshed file uploads will be garbage-collected, and not-yet-started uploads will be cancelled.  (Note that `maxBytes` is currently experimental) |
-| `onProgress`    | ((function)) | Optional. This function will be called again and again as the upstream pumps chunks into the receiver with a dictionary (plain JavaScript object) representing the current status of the upload, until the upload completes.|
+| `onProgress`    | ((function)) | Optional. This function will be called again and again as the upstream pumps chunks into the receiver with a dictionary (plain JavaScript object) representing the current status of the upload, until the upload completes.
+
+## Error codes
+
+- `E_EXCEEDS_UPLOAD_LIMIT` _(when `maxBytes` is exceeded for upstream)_
+
 ========================================
 
 ## Contributions
